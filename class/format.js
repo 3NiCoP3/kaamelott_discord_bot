@@ -14,4 +14,8 @@ module.exports = class Format{
         var strToObject = JSON.parse(strToStringLower)
         return strToObject;
     }
+
+    static firstLetterUppercase(str){
+        return str.charAt(0).toUpperCase() + str.slice(1)
+    }
 }
