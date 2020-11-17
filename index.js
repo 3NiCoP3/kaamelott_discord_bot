@@ -46,6 +46,20 @@ bot.on('message', function (message) {
                     message.author.send(proposalEmbed);
 
                 }
+                break;
+
+            case '/hks':
+                const helpEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setAuthor('Fonctionnement du Bot :')
+                    .setDescription('Plusieurs commandes sont à votre disposition.')
+                    .setThumbnail('https://i.imgur.com/4V7g6KY.gif')
+                    .addFields(
+                        {name: '\u200B', value: '\u200B'},
+                        {name: '/ks [ARG]', value: 'Joue un son aléatoire qui dispose d\'une correspondance avec l\'argument.', inline: true },
+                        {name: '/sks [ARG]', value: 'Vous envoie en DM les sons qui dispose d\'une correspondance avec l\'argument.', inline: true},
+                    )
+                message.channel.send(helpEmbed);
         }
     }
 )
