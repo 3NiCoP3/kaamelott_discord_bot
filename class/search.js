@@ -59,4 +59,14 @@ module.exports = class Search {
         }
         return matchIsOk
     }
+
+    static errorMessage(args){
+        const errorEmbed = new Discord.MessageEmbed()
+            .setColor('#cd341f')
+            .setAuthor(format.firstLetterUppercase('Roi Loth'))
+            .setDescription(format.firstLetterUppercase('Lorem ipsum dolor sit amet. Voilà. Et bien ça, par exemple, c\'est comme ' + args + ' ça veut absolument rien dire.'))
+            .setThumbnail('https://img.xooimage.com/files3/3/a/e/roi-loth-3e577c.gif')
+            .setFooter('Pas de correspondance');
+        return errorEmbed
+    }
 }
