@@ -29,9 +29,11 @@ bot.on('message', function (message) {
 
             case '/sks':
                 message.delete({timeout: 5})
-
-                if (typeof dataSearch === 'undefined' || dataSearch.length === 0) {
-                    message.author.send(Search.errorMessage(args))
+                console.log(args.length)
+                if (typeof dataSearch === 'undefined' ||
+                    dataSearch.length === 0 ||
+                    args.length === 0)  {
+                    return message.author.send(Search.errorMessage(args))
                 }
                 for (let proposal of dataSearch) {
                     const proposalEmbed = new Discord.MessageEmbed()
@@ -56,8 +58,8 @@ bot.on('message', function (message) {
                     .setThumbnail('https://i.imgur.com/4V7g6KY.gif')
                     .addFields(
                         {name: '\u200B', value: '\u200B'},
-                        {name: '/ks [ARG]', value: 'Joue un son aléatoire qui dispose d\'une correspondance avec l\'argument.', inline: true },
-                        {name: '/sks [ARG]', value: 'Vous envoie en DM les sons qui dispose d\'une correspondance avec l\'argument.', inline: true},
+                        {name: '/ks [ARG]', value: 'Joue un son aléatoire qui disposent d\'une correspondance avec l\'argument. Des arguments séparés par "_" forme un seul argument.', inline: true },
+                        {name: '/sks [ARG]', value: 'Vous envoie en DM tous les sons qui disposent d\'une correspondance avec l\'argument.', inline: true},
                     )
                 message.channel.send(helpEmbed);
         }

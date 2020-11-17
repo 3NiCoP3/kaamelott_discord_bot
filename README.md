@@ -8,9 +8,9 @@ Plusieurs commandes sont à votre disposition :
 
 - `/hks `: Affiche un message d'aide
 
-- `/ks [ARG]` : Joue un son aléatoire qui dispose d'une correspondance avec l'argument.
+- `/ks [ARG]` : Joue un son aléatoire qui disposent d'une correspondance avec l'argument. Des arguments séparés par "_" forme un seul argument.
 
-- `/sks [ARG]` : Vous envoie en DM les sons qui dispose d'une correspondance avec l'argument.
+- `/sks [ARG]` : Vous envoie en DM tous les sons qui disposent d'une correspondance avec l'argument.
 
 ----
 
