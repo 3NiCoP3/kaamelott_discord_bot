@@ -13,4 +13,4 @@ RUN npm i dotenv
 WORKDIR /var/www/html
 COPY package*.json ./
 
-CMD ["npm", "start"]
+CMD ["node", "index"]
