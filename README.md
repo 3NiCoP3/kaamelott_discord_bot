@@ -4,6 +4,9 @@ Basé sur [kaamelott-soudboard](https://github.com/2ec0b4/kaamelott-soundboard).
 
 # Fonctionnement du bot
 
+Pour ajouter le bot à votre server Discord suivez ce [lien](https://discord.com/api/oauth2/authorize?client_id=777521817232474143&permissions=260160&scope=bot)
+
+
 Plusieurs commandes sont à votre disposition :
 
 - `/hks `: Affiche un message d'aide
