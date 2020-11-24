@@ -2,9 +2,10 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const Search = require('./class/search')
 const format = require('./class/format')
+require('dotenv').config('/.env')
+const token = process.env['TOKEN']
 
-
-bot.login('Nzc3NTIxODE3MjMyNDc0MTQz.X7Epng.gefWh3_h3kCjnSY1WU3ET16yxSM');
+bot.login(token);
 
 bot.on('message', function (message) {
         let args = message.content.split(' ')
@@ -71,7 +72,7 @@ bot.on('message', function (message) {
                             inline: true
                         },
                         {
-                            name: '/cks [ARG]',
+                            name: '/ksc [ARG]',
                             value: 'Joue le son en argument dans le channel vocal de l\'utilisateur.',
                             inline: true
                         },
