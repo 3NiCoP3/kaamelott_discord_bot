@@ -29,7 +29,7 @@ bot.on('message', function (message) {
 
             case '/sks':
                 message.delete({timeout: 5})
-                console.log(args.length)
+
                 if (typeof dataSearch === 'undefined' ||
                     dataSearch.length === 0 ||
                     args.length === 0)  {
@@ -41,10 +41,11 @@ bot.on('message', function (message) {
                         .setAuthor(format.firstLetterUppercase(proposal.character))
                         .setDescription(format.firstLetterUppercase(proposal.title))
                         .setThumbnail('https://i.imgur.com/4V7g6KY.gif')
-                        .addFields({
-                            name: "Cmd pour lancer le mp3",
-                            value: " /ks " + proposal.file
-                        })
+                        .addFields(
+                            { name: '\u200B', value: '\u200B' },
+                            { name: "Cmd pour lancer le mp3", value: " /ks " + proposal.file, inline: true },
+                            {name: "Cmd pour lancer le mp3 en vocal", value: " /ksc " + proposal.file, inline: true}
+                    )
                     message.author.send(proposalEmbed);
 
                 }
@@ -58,10 +59,20 @@ bot.on('message', function (message) {
                     .setThumbnail('https://i.imgur.com/4V7g6KY.gif')
                     .addFields(
                         {name: '\u200B', value: '\u200B'},
-                        {name: '/ks [ARG]', value: 'Joue un son aléatoire qui disposent d\'une correspondance avec l\'argument. Des arguments séparés par "_" forme un seul argument.', inline: true },
+                        {name: '/ks [ARG]', value: 'Joue un son aléatoire qui dispose d\'une correspondance avec l\'argument. Des arguments séparés par "_" forme un seul argument.', inline: true },
                         {name: '/sks [ARG]', value: 'Vous envoie en DM tous les sons qui disposent d\'une correspondance avec l\'argument.', inline: true},
+                        {name: '/cks [ARG]', value: 'Joue le son en argument dans le channel vocal de l\'utilisateur.', inline: true},
                     )
                 message.channel.send(helpEmbed);
+                break;
+
+            case '/ksc':
+                    message.delete({timeout: 5})
+                    message.member.voice.channel
+                        .join()
+                        .then(function (connection) {
+                            connection.play('./sounds/' + args)
+                        })
         }
     }
 )
