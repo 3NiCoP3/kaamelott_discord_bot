@@ -3,7 +3,8 @@ const bot = new Discord.Client();
 const Search = require('./class/search')
 const format = require('./class/format')
 
-bot.login('Nzc3NTIxODE3MjMyNDc0MTQz.X7Epng.ak3U-qkU4eq74xCeUVAtYgPjPaw');
+
+bot.login('Nzc3NTIxODE3MjMyNDc0MTQz.X7Epng.gefWh3_h3kCjnSY1WU3ET16yxSM');
 
 bot.on('message', function (message) {
         let args = message.content.split(' ')
@@ -73,6 +74,8 @@ bot.on('message', function (message) {
                         .then(function (connection) {
                             connection.play('./sounds/' + args)
                         })
+
+
         }
     }
 )

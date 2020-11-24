@@ -13,6 +13,16 @@ Plusieurs commandes sont à votre disposition :
 - `/sks [ARG]` : Vous envoie en DM tous les sons qui disposent d'une correspondance avec l'argument.
 
 - `/cks [ARG]` : Joue le son en [ARG] dans le channel vocal de l'utilisateur.
-----
 
+# Lancement du bot
+
+Au préalable installez Docker et Docker-compose sur votre machine.
+
+Ensuite faites la commande :
+
+```docker-compose up --build```
+
+Cela va construire une image linux Alpine, avec toutes les dépendances nécessaires au bon fonctionnement du bot.
+ 
+----
 Créé avec **Node.JS** et **Discord.JS**.
