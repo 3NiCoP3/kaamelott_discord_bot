@@ -33,7 +33,7 @@ bot.on('message', function (message) {
 
                 if (typeof dataSearch === 'undefined' ||
                     dataSearch.length === 0 ||
-                    args.length === 0)  {
+                    args.length === 0) {
                     return message.author.send(Search.errorMessage(args))
                 }
                 for (let proposal of dataSearch) {
@@ -43,10 +43,10 @@ bot.on('message', function (message) {
                         .setDescription(format.firstLetterUppercase(proposal.title))
                         .setThumbnail('https://i.imgur.com/4V7g6KY.gif')
                         .addFields(
-                            { name: '\u200B', value: '\u200B' },
-                            { name: "Cmd pour lancer le mp3", value: " /ks " + proposal.file, inline: true },
+                            {name: '\u200B', value: '\u200B'},
+                            {name: "Cmd pour lancer le mp3", value: " /ks " + proposal.file, inline: true},
                             {name: "Cmd pour lancer le mp3 en vocal", value: " /ksc " + proposal.file, inline: true}
-                    )
+                        )
                     message.author.send(proposalEmbed);
 
                 }
@@ -60,21 +60,40 @@ bot.on('message', function (message) {
                     .setThumbnail('https://i.imgur.com/4V7g6KY.gif')
                     .addFields(
                         {name: '\u200B', value: '\u200B'},
-                        {name: '/ks [ARG]', value: 'Joue un son aléatoire qui dispose d\'une correspondance avec l\'argument. Des arguments séparés par "_" forme un seul argument.', inline: true },
-                        {name: '/sks [ARG]', value: 'Vous envoie en DM tous les sons qui disposent d\'une correspondance avec l\'argument.', inline: true},
-                        {name: '/cks [ARG]', value: 'Joue le son en argument dans le channel vocal de l\'utilisateur.', inline: true},
+                        {
+                            name: '/ks [ARG]',
+                            value: 'Joue un son aléatoire qui dispose d\'une correspondance avec l\'argument. Des arguments séparés par "_" forme un seul argument.',
+                            inline: true
+                        },
+                        {
+                            name: '/sks [ARG]',
+                            value: 'Vous envoie en DM tous les sons qui disposent d\'une correspondance avec l\'argument.',
+                            inline: true
+                        },
+                        {
+                            name: '/cks [ARG]',
+                            value: 'Joue le son en argument dans le channel vocal de l\'utilisateur.',
+                            inline: true
+                        },
                     )
                 message.channel.send(helpEmbed);
                 break;
 
             case '/ksc':
-                    message.delete({timeout: 5})
+                message.delete({timeout: 5})
+                try {
                     message.member.voice.channel
                         .join()
                         .then(function (connection) {
                             connection.play('./sounds/' + args)
                         })
-
+                } catch (e) {
+                    message.author.send(new Discord.MessageEmbed()
+                        .setColor('#cd341f')
+                        .setAuthor(format.firstLetterUppercase('Roi Loth'))
+                        .setDescription(format.firstLetterUppercase('Tu n\'es pas dans un salon vocal, le son ne peut être joué.'))
+                        .setThumbnail('https://img.xooimage.com/files3/3/a/e/roi-loth-3e577c.gif'))
+                }
 
         }
     }
