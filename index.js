@@ -73,7 +73,7 @@ bot.on('message', function (message) {
                         },
                         {
                             name: '/cks [ARG]',
-                            value: 'Joue le son en argument dans le channel vocal de l\'utilisateur. L\' argument doit être de type "*.mp3",
+                            value: 'Joue le son en argument dans le channel vocal de l\'utilisateur. L\' argument doit être de type "*.mp3"',
                             inline: true
                         },
                     )
