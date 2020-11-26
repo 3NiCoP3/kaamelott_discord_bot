@@ -15,7 +15,7 @@ Plusieurs commandes sont à votre disposition :
 
 - `/sks [ARG]` : Vous envoie en DM tous les sons qui disposent d'une correspondance avec l'argument.
 
-- `/cks [ARG]` : Joue le son en [ARG] dans le channel vocal de l'utilisateur.
+- `/cks [ARG]` : Joue le son en [ARG] dans le channel vocal de l'utilisateur. L' argument doit être de type "*.mp3.
 
 # Lancement du bot
 

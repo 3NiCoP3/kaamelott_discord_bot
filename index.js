@@ -46,7 +46,7 @@ bot.on('message', function (message) {
                         .addFields(
                             {name: '\u200B', value: '\u200B'},
                             {name: "Cmd pour lancer le mp3", value: " /ks " + proposal.file, inline: true},
-                            {name: "Cmd pour lancer le mp3 en vocal", value: " /ksc " + proposal.file, inline: true}
+                            {name: "Cmd pour lancer le mp3 en vocal", value: " /cks " + proposal.file, inline: true}
                         )
                     message.author.send(proposalEmbed);
 
@@ -72,15 +72,15 @@ bot.on('message', function (message) {
                             inline: true
                         },
                         {
-                            name: '/ksc [ARG]',
-                            value: 'Joue le son en argument dans le channel vocal de l\'utilisateur.',
+                            name: '/cks [ARG]',
+                            value: 'Joue le son en argument dans le channel vocal de l\'utilisateur. L\' argument doit être de type "*.mp3",
                             inline: true
                         },
                     )
                 message.channel.send(helpEmbed);
                 break;
 
-            case '/ksc':
+            case '/cks':
                 message.delete({timeout: 5})
                 try {
                     message.member.voice.channel
